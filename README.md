@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+// ...existing code...
+# Anokhichikankari — Frontend (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Minimal storefront frontend built with React, TypeScript, Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Quick start
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Install
+```sh
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Dev server
+```sh
+npm run dev
 ```
+
+3. Build
+```sh
+npm run build
+```
+
+4. Lint
+```sh
+npm run lint
+```
+
+## Environment
+
+- Public env variables live in `.env` — see [`.env`](.env).
+- Supabase client reads from `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the runtime env. See [`src/lib/supabaseClient.ts`](src/lib/supabaseClient.ts).
+
+## Project structure (key files)
+
+- Vite config: [`vite.config.ts`](vite.config.ts)
+- Package scripts & deps: [`package.json`](package.json)
+- Tailwind config: [`tailwind.config.ts`](tailwind.config.ts)
+- TypeScript app config: [`tsconfig.app.json`](tsconfig.app.json)
+- App entry: [`src/main.tsx`](src/main.tsx) -> [`src/App.tsx`](src/App.tsx)
+- Types: [`src/lib/types.ts`](src/lib/types.ts)
+- Hooks: [`src/hooks/useStoreSettings.ts`](src/hooks/useStoreSettings.ts), [`src/hooks/useTrendingProducts.ts`](src/hooks/useTrendingProducts.ts), [`src/hooks/useProducts.ts`](src/hooks/useProducts.ts)
+- UI components: [`src/components/Hero.tsx`](src/components/Hero.tsx), [`src/components/ProductCarousel.tsx`](src/components/ProductCarousel.tsx), [`src/components/ProductCard.tsx`](src/components/ProductCard.tsx), [`src/components/Footer.tsx`](src/components/Footer.tsx)
+
+## Notes
+
+- The app expects image assets under `src/assets/` and some category placeholders reference those paths (see [`src/components/CategoryTile.tsx`](src/components/CategoryTile.tsx)).
+- Supabase usage and types are defined in [`src/lib/supabaseClient.ts`](src/lib/supabaseClient.ts) and [`src/lib/types.ts`](src/lib/types.ts).
+- UI uses Tailwind utilities defined in [`src/index.css`](src/index.css) and [`tailwind.config.ts`](tailwind.config.ts).
+
+## Contributing
+
+- Follow existing code patterns in `src/components/` and `src/hooks/`.
+- Run `npm run lint` before commits.
+
+## License
+
+Proprietary / project-specific license as applicable.
