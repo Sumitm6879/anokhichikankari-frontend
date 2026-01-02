@@ -1,4 +1,3 @@
-// ...existing code...
 # Anokhichikankari — Frontend (React + TypeScript + Vite)
 
 Minimal storefront frontend built with React, TypeScript, Vite and Tailwind CSS.
