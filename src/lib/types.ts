@@ -60,6 +60,18 @@ export interface Product {
   product_variants?: ProductVariant[]
 }
 
+export interface ProductWithStock extends Product {
+  total_stock: number
+  is_out_of_stock: boolean
+}
+
+// Image extension
+export interface ProductWithImages extends Product {
+  image_url?: string
+}
+
+export type ProductUI = ProductWithImages & ProductWithStock
+
 export interface Category {
   id: string
   name: string

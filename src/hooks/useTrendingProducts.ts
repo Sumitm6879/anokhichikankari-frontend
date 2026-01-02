@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
-import type { Product } from '../lib/types'
-
-interface ProductWithImages extends Product {
-  image_url?: string
-}
+import type { ProductUI } from '../lib/types'
 
 export const useTrendingProducts = () => {
-  const [products, setProducts] = useState<ProductWithImages[]>([])
+  const [products, setProducts] = useState<ProductUI[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 

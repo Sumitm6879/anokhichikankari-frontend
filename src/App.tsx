@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useStoreSettings } from './hooks/useStoreSettings'
 import { Hero } from './components/Hero'
 import { TrendingProductsSection } from './components/TrendingProductsSection'
@@ -7,39 +8,39 @@ import { CraftStory } from './components/CraftStory'
 import { TrustStrip } from './components/TrustStrip'
 import { Footer } from './components/Footer'
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton'
+import { AllProducts } from './pages/AllProducts'
+import { Navbar } from './components/Navbar'
 
-function App() {
+// Refactored Home Page Component
+const Home = () => {
   const { settings } = useStoreSettings()
   const whatsappNumber = settings.whatsapp_number
 
   return (
-    <div className="w-full">
-      {/* Hero Section */}
+    <>
+      <Navbar whatsappNumber={whatsappNumber} />
       <Hero whatsappNumber={whatsappNumber} />
-
-      {/* Trending Products Section */}
       <div id="trending-section">
         <TrendingProductsSection />
       </div>
-
-      {/* Category Showcase */}
       <CategoryShowcase />
-
-      {/* Trust Section */}
       <TrustSection />
-
-      {/* Craft Story Section */}
       <CraftStory />
-
-      {/* Trust Strip */}
       <TrustStrip />
-
-      {/* Footer */}
       <Footer />
-
-      {/* Floating WhatsApp Button */}
       <FloatingWhatsAppButton whatsappNumber={whatsappNumber} />
-    </div>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<AllProducts />} />
+      </Routes>
+    </Router>
   )
 }
 

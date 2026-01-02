@@ -1,87 +1,118 @@
 import { useRef } from 'react'
-import type { Product } from '../lib/types'
+import type { ProductUI } from '../lib/types'
 import { ProductCard } from './ProductCard'
 
 interface ProductCarouselProps {
-  products: Product[]
+  products: ProductUI[]
   isLoading?: boolean
 }
 
-export const ProductCarousel: React.FC<ProductCarouselProps> = ({ products, isLoading = false }) => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+export const ProductCarousel: React.FC<ProductCarouselProps> = ({
+  products,
+  isLoading = false,
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = 400
-      const newScrollPosition =
-        direction === 'left'
-          ? scrollContainerRef.current.scrollLeft - scrollAmount
-          : scrollContainerRef.current.scrollLeft + scrollAmount
+  const scrollByCard = (direction: 'left' | 'right') => {
+    if (!containerRef.current) return
 
-      scrollContainerRef.current.scrollTo({
-        left: newScrollPosition,
-        behavior: 'smooth',
-      })
-    }
+    const card = containerRef.current.querySelector('[data-card]')
+    if (!card) return
+
+    const cardWidth = (card as HTMLElement).offsetWidth
+    const gap = 32 // must match gap-x
+    const scrollAmount = cardWidth + gap
+
+    containerRef.current.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
   }
 
   if (isLoading) {
     return (
-      <div className="flex gap-4 overflow-hidden">
+      <div className="flex gap-8">
         {[...Array(3)].map((_, i) => (
-          <div key={i} className="shrink-0 w-80 md:w-96 animate-pulse">
-            <div className="aspect-square md:aspect-auto md:h-96 bg-slate-200 rounded-lg mb-4" />
-            <div className="h-6 bg-slate-200 rounded mb-2" />
-            <div className="h-6 w-24 bg-slate-200 rounded" />
+          <div key={i} className="w-[320px] animate-pulse">
+            <div className="aspect-[3/4] bg-[#EDE7DD] rounded-xl mb-4" />
+            <div className="h-4 bg-[#EDE7DD] rounded w-3/4 mb-2" />
+            <div className="h-3 bg-[#EDE7DD] rounded w-1/3" />
           </div>
         ))}
       </div>
     )
   }
 
-  if (products.length === 0) {
-    return (
-      <div className="text-center py-12">
-        <p className="text-slate-600">No products available at the moment.</p>
-      </div>
-    )
-  }
+  if (products.length === 0) return null
 
   return (
-    <div className="relative group">
-      {/* Scroll Container */}
+    <div className="relative">
+      {/* Scroll Track */}
       <div
-        ref={scrollContainerRef}
-        className="flex gap-8 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4"
-        style={{ scrollBehavior: 'smooth' }}
+        ref={containerRef}
+        className="
+          flex gap-8
+          overflow-x-auto
+          scroll-smooth
+          pb-4
+          -mx-4 px-4
+          md:mx-0 md:px-0
+          no-scrollbar
+        "
       >
-        {products.map((product) => (
-          <div key={product.id} className="snap-start">
-            <ProductCard product={product} />
+        {products.map(product => (
+          <div
+            key={product.id}
+            data-card
+            className="
+              w-[240px]
+              sm:w-[260px]
+              lg:w-[280px]
+              shrink-0
+            "
+          >
+            <ProductCard product={product} variant="carousel" />
           </div>
         ))}
       </div>
 
-      {/* Left Scroll Button */}
+      {/* Desktop arrows only */}
       <button
-        onClick={() => scroll('left')}
-        className="absolute left-0 top-1/3 -translate-y-1/2 -translate-x-12 md:-translate-x-16 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 p-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200"
-        aria-label="Scroll left"
+        onClick={() => scrollByCard('left')}
+        className="
+          hidden md:flex
+          absolute -left-14 top-1/2 -translate-y-1/2
+          h-12 w-12
+          items-center justify-center
+          rounded-full
+          bg-white
+          shadow-md
+          text-2xl
+          text-[#6B4E2E]
+          hover:bg-[#FAF7F2]
+        "
+        aria-label="Previous products"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
+        ‹
       </button>
 
-      {/* Right Scroll Button */}
       <button
-        onClick={() => scroll('right')}
-        className="absolute right-0 top-1/3 -translate-y-1/2 translate-x-12 md:translate-x-16 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 p-2 rounded-full bg-slate-100 text-slate-700 hover:bg-slate-200"
-        aria-label="Scroll right"
+        onClick={() => scrollByCard('right')}
+        className="
+          hidden md:flex
+          absolute -right-14 top-1/2 -translate-y-1/2
+          h-12 w-12
+          items-center justify-center
+          rounded-full
+          bg-white
+          shadow-md
+          text-2xl
+          text-[#6B4E2E]
+          hover:bg-[#FAF7F2]
+        "
+        aria-label="Next products"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
+        ›
       </button>
     </div>
   )

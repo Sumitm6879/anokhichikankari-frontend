@@ -1,18 +1,19 @@
+import { useNavigate } from 'react-router-dom'
 interface HeroProps {
   whatsappNumber?: string
 }
-
 export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
   // Placeholder hero image - will be replaced with real brand image
   const heroImageUrl = 'src/assets/banner_ac2.png'
+  const navigate = useNavigate()
 
   const handleViewCollection = () => {
-    // TODO: Implement navigation to shop/collection
-    document.querySelector('#trending-section')?.scrollIntoView({ behavior: 'smooth' })
+    navigate('/products')
   }
 
   const handleWhatsAppOrder = () => {
-    if (whatsappNumber) {
+    if (!whatsappNumber) {
+      let whatsappNumber = 9876543210;
       const message = encodeURIComponent(
         'Hi! I am interested in your Chikankari kurtas. Could you please guide me?'
       )
@@ -78,7 +79,7 @@ export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
             </button>
             <button
               onClick={handleWhatsAppOrder}
-              disabled={!whatsappNumber}
+              // disabled={whatsappNumber}
               className="btn-secondary text-base md:text-lg bg-white/10 border-white text-white hover:bg-white/20"
             >
               Order on WhatsApp
