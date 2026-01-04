@@ -2,28 +2,6 @@
 
 Minimal storefront frontend built with React, TypeScript, Vite and Tailwind CSS.
 
-## Quick start
-
-1. Install
-```sh
-npm install
-```
-
-2. Dev server
-```sh
-npm run dev
-```
-
-3. Build
-```sh
-npm run build
-```
-
-4. Lint
-```sh
-npm run lint
-```
-
 ## Environment
 
 - Public env variables live in `.env` — see [`.env`](.env).
