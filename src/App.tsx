@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import { useStoreSettings } from './hooks/useStoreSettings'
 import { Hero } from './components/Hero'
 import { TrendingProductsSection } from './components/TrendingProductsSection'
@@ -36,13 +37,16 @@ const Home = () => {
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<AllProducts />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<AllProducts />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </Router>
+      <Analytics />
+    </>
   )
 }
 
