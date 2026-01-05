@@ -10,6 +10,7 @@ import { Footer } from './components/Footer'
 import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton'
 import { AllProducts } from './pages/AllProducts'
 import { Navbar } from './components/Navbar'
+import ProductDetails from "./pages/ProductDetails";
 
 // Refactored Home Page Component
 const Home = () => {
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<AllProducts />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </Router>
   )

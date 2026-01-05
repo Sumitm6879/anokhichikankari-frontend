@@ -28,6 +28,7 @@ export const useProducts = (
           name,
           description,
           price,
+          is_price_visible,
           sale_price,
           is_on_sale,
           is_active,
@@ -35,7 +36,8 @@ export const useProducts = (
           category_id,
           product_images (
             image_url,
-            is_primary
+            is_primary,
+            color_id
           ),
           product_variants (
             stock_quantity
@@ -81,11 +83,15 @@ export const useProducts = (
           name: product.name,
           description: product.description,
           price: product.price,
+          is_price_visible: product.is_price_visible,
           sale_price: product.sale_price,
           is_on_sale: product.is_on_sale,
           is_active: product.is_active,
           created_at: product.created_at,
           category_id: product.category_id,
+
+          // Pass the raw images array so we can find color-specific images later
+          product_images: product.product_images,
 
           // UI-specific fields
           image_url: primaryImage,
