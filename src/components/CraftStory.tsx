@@ -1,5 +1,6 @@
+import craftstoryimg from '../assets/section_image_1.png'
+
 export const CraftStory: React.FC = () => {
-  const storyImageUrl = 'src/assets/section_image_1.png'
   return (
     <section className="section-container bg-slate-50">
       <div className="section-inner">
@@ -7,7 +8,7 @@ export const CraftStory: React.FC = () => {
           {/* Image */}
           <div className="order-2 lg:order-1">
             <img
-              src={storyImageUrl}
+              src={craftstoryimg}
               alt="Artisans creating Chikankari embroidery"
               className="w-full rounded-lg shadow-lg"
             />

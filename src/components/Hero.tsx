@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom'
+import banner_ac1 from '../assets/banner_ac1.png'
 interface HeroProps {
   whatsappNumber?: string
 }
 export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
   // Placeholder hero image - will be replaced with real brand image
-  const heroImageUrl = 'src/assets/banner_ac2.png'
+  const heroImageUrl = banner_ac1
   const navigate = useNavigate()
 
   const handleViewCollection = () => {
