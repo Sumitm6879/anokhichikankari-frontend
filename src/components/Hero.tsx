@@ -12,13 +12,14 @@ export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
   }
 
   const handleWhatsAppOrder = () => {
-    if (!whatsappNumber) {
-      let whatsappNumber = 9876543210;
-      const message = encodeURIComponent(
-        'Hi! I am interested in your Chikankari kurtas. Could you please guide me?'
-      )
-      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
+    let whatsapp_number = whatsappNumber;
+    if (!whatsapp_number) {
+      whatsapp_number = '9876543210';
     }
+    const message = encodeURIComponent(
+      'Hi! I am interested in your Chikankari kurtas. Could you please guide me?'
+    )
+    window.open(`https://wa.me/${whatsapp_number}?text=${message}`, '_blank')
   }
 
   return (
@@ -31,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
         }}
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/40 to-transparent" />
       </div>
 
       {/* Content */}

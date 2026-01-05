@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-
+import logo from '../assets/logo.svg'
 interface NavbarProps {
   whatsappNumber?: string
 }
@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({ whatsappNumber }) => {
           <Link to="/" className="flex items-center gap-3 group">
               {/* Logo Image */}
               <img
-                src="/logo.svg"
+                src={logo}
                 alt="Anokhi Chikankari Logo"
                 className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />

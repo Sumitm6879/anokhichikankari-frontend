@@ -20,7 +20,7 @@ export const CategoryTile: React.FC<CategoryTileProps> = ({
         w-full
         overflow-hidden
         rounded-xl
-        aspect-[4/3]
+        aspect-4/3
         cursor-pointer
       "
     >

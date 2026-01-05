@@ -15,7 +15,7 @@ import ProductDetails from "./pages/ProductDetails";
 // Refactored Home Page Component
 const Home = () => {
   const { settings } = useStoreSettings()
-  const whatsappNumber = settings.whatsapp_number
+  const whatsappNumber = settings.support_phone
 
   return (
     <>

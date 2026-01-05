@@ -46,7 +46,7 @@ export const CategoryShowcase: React.FC = () => {
                 name={category.name}
                 imageUrl={imageUrl}
                 onClick={() =>
-                  navigate(`/collections?category=${category.id}`)
+                  navigate(`/products?category=${category.id}`)
                 }
               />
             )
