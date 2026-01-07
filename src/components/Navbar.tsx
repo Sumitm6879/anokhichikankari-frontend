@@ -52,7 +52,7 @@ export const Navbar: React.FC<NavbarProps> = ({ whatsappNumber }) => {
             </a>
             {whatsappNumber && (
               <a
-                href={`https://wa.me/${whatsappNumber}`}
+                href={`https://wa.me/${whatsappNumber}?text=Hi! I am interested in your Chikankari kurtis. Could you please guide me?`}
                 target="_blank"
                 rel="noreferrer"
                 className="bg-emerald-700/90 text-white px-5 py-2 rounded-full hover:bg-emerald-800 transition-all text-sm font-medium shadow-sm hover:shadow-md"

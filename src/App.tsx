@@ -12,6 +12,15 @@ import { FloatingWhatsAppButton } from './components/FloatingWhatsAppButton'
 import { AllProducts } from './pages/AllProducts'
 import { Navbar } from './components/Navbar'
 import ProductDetails from "./pages/ProductDetails";
+import About from './pages/static/About'
+import CareInstructions from './pages/static/CareInstructions'
+import ShippingPolicy from './pages/static/ShippingPolicy'
+import Contact from './pages/static/Contact'
+import FAQ from './pages/static/FAQ'
+import ReturnsExchanges from './pages/static/ReturnsExchanges'
+import TrackOrder from './pages/static/TrackOrder'
+import PrivacyPolicy from './pages/static/PrivacyPolicy'
+import TermsOfService from './pages/static/TermsOfService'
 
 // Refactored Home Page Component
 const Home = () => {
@@ -43,6 +52,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/care-instructions" element={<CareInstructions />} />
+          <Route path="/shipping-policy" element={<ShippingPolicy />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/returns-exchanges" element={<ReturnsExchanges />} />
+          <Route path="/track-order" element={<TrackOrder />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
       </Router>
       <Analytics />
