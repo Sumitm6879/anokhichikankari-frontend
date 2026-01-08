@@ -99,7 +99,7 @@ export const AllProducts: React.FC = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-14">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="animate-pulse">
-                <div className="bg-[#EDE7DD] aspect-[3/4] rounded-xl mb-4"></div>
+                <div className="bg-[#EDE7DD] aspect-3/4 rounded-xl mb-4"></div>
                 <div className="h-4 bg-[#EDE7DD] rounded w-3/4 mb-2"></div>
                 <div className="h-4 bg-[#EDE7DD] rounded w-1/3"></div>
               </div>

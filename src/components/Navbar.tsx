@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ whatsappNumber }) => {
             <Link to="/products" className="text-sm font-medium text-slate-800 hover:text-emerald-700 transition-colors">
               Collection
             </Link>
-            <a href="#about" className="text-sm font-medium text-slate-800 hover:text-emerald-700 transition-colors">
+            <a href="/about" className="text-sm font-medium text-slate-800 hover:text-emerald-700 transition-colors">
               Our Story
             </a>
             {whatsappNumber && (

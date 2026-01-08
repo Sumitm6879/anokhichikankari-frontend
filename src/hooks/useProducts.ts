@@ -10,8 +10,8 @@ interface UseProductsResult {
 
 export const useProducts = (
   limit?: number,
-  categoryId?: string
-): UseProductsResult => {
+  categoryId?: string):
+  UseProductsResult => {
   const [products, setProducts] = useState<ProductUI[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
