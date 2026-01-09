@@ -8,14 +8,12 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ whatsappNumber }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  // Custom Glass Effect Styles
-  // Removed border-radius and margins to make it full-width
   const glassStyle: React.CSSProperties = {
     background: 'rgba(255, 255, 255, 0.2)',
     backdropFilter: 'blur(12px)',
     WebkitBackdropFilter: 'blur(12px)',
     borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
-    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)', // Very subtle shadow
+    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.03)',
   }
 
   return (
