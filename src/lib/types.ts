@@ -86,7 +86,7 @@ export interface StoreSettings {
   support_email?: string
   shipping_fee?: number
   free_shipping_threshold?: number
-  banners?: unknown
+  banners?: string[]
   created_at?: string
 }
 
