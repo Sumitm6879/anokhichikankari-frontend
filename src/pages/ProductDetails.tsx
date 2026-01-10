@@ -132,7 +132,7 @@ Link: ${window.location.href}`
 
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
-      <Navbar whatsappNumber={settings.whatsapp_number} />
+      <Navbar whatsappNumber={settings.support_phone} />
 
       {/* Breadcrumb */}
       <div className="pt-4 pb-2 px-4 max-w-400 mx-auto">
@@ -363,7 +363,7 @@ Link: ${window.location.href}`
       </div>
 
       <Footer />
-      <FloatingWhatsAppButton whatsappNumber={settings.whatsapp_number} />
+      <FloatingWhatsAppButton whatsappNumber={settings.support_phone} />
 
       {/* Zoom Modal - Now separated! */}
       <ImageZoomModal

@@ -33,7 +33,7 @@ export const AllProducts: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
-      <Navbar whatsappNumber={settings.whatsapp_number} />
+      <Navbar whatsappNumber={settings.support_phone} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
 
@@ -126,7 +126,7 @@ export const AllProducts: React.FC = () => {
       </div>
 
       <Footer />
-      <FloatingWhatsAppButton whatsappNumber={settings.whatsapp_number} />
+      <FloatingWhatsAppButton whatsappNumber={settings.support_phone} />
     </div>
   )
 }

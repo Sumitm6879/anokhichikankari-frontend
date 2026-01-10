@@ -88,7 +88,6 @@ export interface StoreSettings {
   free_shipping_threshold?: number
   banners?: unknown
   created_at?: string
-  whatsapp_number?: string
 }
 
 export interface TrustPoint {
