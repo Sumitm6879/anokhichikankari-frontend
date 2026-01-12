@@ -1,10 +1,12 @@
 # Anokhichikankari — Frontend (React + TypeScript + Vite)
 
-Minimal storefront frontend built with React, TypeScript, Vite and Tailwind CSS.
+Minimal storefront frontend built with React, TypeScript, Vite and Tailwind CSS. 
+
+### Visit the site here [Anokhi Chikankari](https://www.anokhichikankari.com/)
 
 ## Environment
 
-- Public env variables live in `.env` — see [`.env`](.env).
+- Public env variables live in `.env`
 - Supabase client reads from `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the runtime env. See [`src/lib/supabaseClient.ts`](src/lib/supabaseClient.ts).
 
 ## Project structure (key files)
