@@ -79,6 +79,12 @@ export interface Category {
   created_at?: string
 }
 
+export interface Banner {
+  readonly url: string;
+  link: string;
+  active: boolean;
+}
+
 export interface StoreSettings {
   id?: number
   store_name?: string
@@ -86,7 +92,7 @@ export interface StoreSettings {
   support_email?: string
   shipping_fee?: number
   free_shipping_threshold?: number
-  banners?: string[]
+  banners?: Banner[]
   created_at?: string
 }
 
