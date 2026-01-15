@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useProducts } from '../hooks/useProducts'
 import { useCategories } from '../hooks/useCategories'
 import { ProductCard } from '../components/ProductCard'
@@ -7,14 +8,26 @@ import { Footer } from '../components/Footer'
 import { FloatingWhatsAppButton } from '../components/FloatingWhatsAppButton'
 import { useStoreSettings } from '../hooks/useStoreSettings'
 
-
 export const AllProducts: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const selectedCategory = searchParams.get('category') || ''
+
   const [sortBy, setSortBy] = useState<'newest' | 'price-low' | 'price-high'>('newest')
 
   const { products, loading: productsLoading } = useProducts(undefined, selectedCategory || undefined)
   const { categories, loading: categoriesLoading } = useCategories()
   const { settings } = useStoreSettings()
+
+  const handleCategoryChange = (categoryId: string) => {
+    setSearchParams(prev => {
+      if (categoryId) {
+        prev.set('category', categoryId)
+      } else {
+        prev.delete('category')
+      }
+      return prev
+    })
+  }
 
   const sortedProducts = useMemo(() => {
     if (!products) return []
@@ -56,7 +69,7 @@ export const AllProducts: React.FC = () => {
             <div className="relative w-full md:w-48">
               <select
                 value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
+                onChange={(e) => handleCategoryChange(e.target.value)}
                 disabled={categoriesLoading}
                 className="appearance-none w-full rounded-xl border border-[#E6E1D8] bg-white/80 px-4 py-2.5 text-sm text-[#2C2A28] focus:border-[#8B6F47] focus:ring-0"
               >
@@ -110,8 +123,8 @@ export const AllProducts: React.FC = () => {
             <h3 className="text-lg font-medium text-[#2C2A28]">No pieces found</h3>
             <p className="mt-1 text-[#6B645C]">Try another category or explore again soon.</p>
             <button
-              onClick={() => setSelectedCategory('')}
-              className="mt-6 text-sm font-medium text-[#8B6F47] hover:underline"
+              onClick={() => handleCategoryChange('')}
+              className="mt-6 text-sm font-medium text-[#8B6F47] hover:underline cursor-pointer"
             >
               Clear filters
             </button>
