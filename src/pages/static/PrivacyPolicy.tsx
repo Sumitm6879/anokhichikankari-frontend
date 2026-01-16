@@ -1,6 +1,8 @@
 import StaticPageLayout from './StaticPageLayout'
+import {useStoreSettings} from '../../hooks/useStoreSettings'
 
 export default function PrivacyPolicy() {
+  const {settings} = useStoreSettings();
   return (
     <StaticPageLayout title="Privacy Policy">
       <div className="space-y-6">
@@ -114,7 +116,7 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-semibold text-slate-900 mb-3">Contact Us</h2>
           <p className="text-slate-700">
             If you have questions about this Privacy Policy or our privacy practices, please contact
-            us at info@anokhichikankari.com
+            us at {settings.support_email}
           </p>
         </section>
       </div>

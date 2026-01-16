@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import StaticPageLayout from './StaticPageLayout'
+import { useStoreSettings } from '../../hooks/useStoreSettings'
 
 export default function TrackOrder() {
   const [trackingNumber, setTrackingNumber] = useState('')
   const [searched, setSearched] = useState(false)
+  const {settings} = useStoreSettings();
 
   const handleTrack = (e: React.FormEvent) => {
     e.preventDefault()
@@ -93,8 +95,8 @@ export default function TrackOrder() {
         <section className="bg-slate-50 rounded-xl p-6 text-center">
           <p className="text-slate-600 text-sm">
             Can't find your tracking number? Contact us at{' '}
-            <a href="mailto:info@anokhichikankari.com" className="text-slate-900 font-medium underline">
-              info@anokhichikankari.com
+            <a href={`mailto:${settings.support_email}`} className="text-slate-900 font-medium underline">
+              {settings.support_email}
             </a>
           </p>
         </section>

@@ -1,4 +1,5 @@
 import StaticPageLayout from './StaticPageLayout'
+import {WashingMachine, Container, Flame, Wind} from 'lucide-react'
 
 export default function CareInstructions() {
   return (
@@ -16,7 +17,7 @@ export default function CareInstructions() {
             {/* Washing */}
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
               <h3 className="font-serif font-bold text-slate-900 mb-4 text-xl flex items-center gap-2">
-                <span>🧼</span> Washing
+                <span className='text-pink-500'><WashingMachine/></span> Washing
               </h3>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>Prefer dry clean for best longevity.</li>
@@ -29,7 +30,7 @@ export default function CareInstructions() {
             {/* Drying */}
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
               <h3 className="font-serif font-bold text-slate-900 mb-4 text-xl flex items-center gap-2">
-                <span>🌬️</span> Drying
+                <span className='text-blue-500'><Wind/></span> Drying
               </h3>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>Do not wring or twist the garment.</li>
@@ -41,7 +42,7 @@ export default function CareInstructions() {
             {/* Ironing */}
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
               <h3 className="font-serif font-bold text-slate-900 mb-4 text-xl flex items-center gap-2">
-                <span>🔥</span> Ironing
+                <span className='text-orange-500'><Flame/></span> Ironing
               </h3>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>Iron on low heat.</li>
@@ -52,7 +53,7 @@ export default function CareInstructions() {
             {/* Storage */}
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-100">
               <h3 className="font-serif font-bold text-slate-900 mb-4 text-xl flex items-center gap-2">
-                <span>👘</span> Storage
+                <span className='text-cyan-600'><Container/></span> Storage
               </h3>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>Store in a cool, dry place.</li>

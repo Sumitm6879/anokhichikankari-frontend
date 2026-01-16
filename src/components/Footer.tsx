@@ -1,15 +1,30 @@
 import { useStoreSettings } from '../hooks/useStoreSettings'
+import {
+  Info,
+  FileText,
+  Truck,
+  Mail,
+  HelpCircle,
+  RefreshCw,
+  Package,
+  ShieldCheck
+} from 'lucide-react'
 
 export const Footer: React.FC = () => {
   const { settings } = useStoreSettings()
 
   const footerLinks = [
-    { label: 'About Us', href: '/about' },
-    { label: 'Care Instructions', href: '/care-instructions' },
-    { label: 'Shipping Policy', href: '/shipping-policy' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'About Us', href: '/about', icon: Info },
+    { label: 'Care Instructions', href: '/care-instructions', icon: ShieldCheck },
+    { label: 'Shipping Policy', href: '/shipping-policy', icon: Truck },
+    { label: 'Contact', href: '/contact', icon: Mail },
   ]
 
+  const customerServiceLinks = [
+    { label: 'FAQ', href: '/faq', icon: HelpCircle },
+    { label: 'Returns & Exchanges', href: '/returns-exchanges', icon: RefreshCw },
+    { label: 'Track Order', href: '/track-order', icon: Package },
+  ]
 
   const currentYear = new Date().getFullYear()
 
@@ -21,7 +36,7 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div>
             <h3 className="text-lg font-serif font-bold text-white mb-4">
-              Anokhichikankari
+              Anokhi Chikankari
             </h3>
             <p className="text-sm text-slate-400 mb-6">
               Authentic handcrafted Chikankari kurtas celebrating Lucknowi heritage and artisan craftsmanship.
@@ -33,13 +48,14 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
               Quick Links
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               {footerLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                    className="group flex items-center text-sm text-slate-400 hover:text-green-500 transition-colors duration-200"
                   >
+                    <link.icon className="w-4 h-4 mr-2 text-slate-500 group-hover:text-green-500 transition-colors" />
                     {link.label}
                   </a>
                 </li>
@@ -52,31 +68,18 @@ export const Footer: React.FC = () => {
             <h4 className="text-sm font-semibold text-white uppercase tracking-wide mb-4">
               Customer Service
             </h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="/faq"
-                  className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
-                >
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="returns-exchanges"
-                  className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
-                >
-                  Returns & Exchanges
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/track-order"
-                  className="text-sm text-slate-400 hover:text-white transition-colors duration-200"
-                >
-                  Track Order
-                </a>
-              </li>
+            <ul className="space-y-3">
+              {customerServiceLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="group flex items-center text-sm text-slate-400 hover:text-green-500 transition-colors duration-200"
+                  >
+                    <link.icon className="w-4 h-4 mr-2 text-slate-500 group-hover:text-green-500 transition-colors" />
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -86,48 +89,9 @@ export const Footer: React.FC = () => {
               Connect With Us
             </h4>
             <p className="text-sm text-slate-400 mb-4">
-              Follow our journey on Instagram or message us on WhatsApp.
+              Message us on WhatsApp.
             </p>
             <div className="flex gap-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all duration-200"
-                aria-label="Visit our Instagram"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  className="w-5 h-5"
-                >
-                  <defs>
-                    {/* Instagram Gradient */}
-                    <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#F58529" />
-                      <stop offset="25%" stopColor="#FEDA77" />
-                      <stop offset="50%" stopColor="#DD2A7B" />
-                      <stop offset="75%" stopColor="#8134AF" />
-                      <stop offset="100%" stopColor="#515BD4" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* Normal icon */}
-                  <path
-                    className="group-hover:opacity-0 transition-opacity duration-200"
-                    fill="currentColor"
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 7.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 7.9a3.1 3.1 0 110-6.2 3.1 3.1 0 010 6.2zm4.965-8.722a1.12 1.12 0 110 2.24 1.12 1.12 0 010-2.24z"
-                  />
-
-                  {/* Gradient icon (hover) */}
-                  <path
-                    className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                    fill="url(#ig-gradient)"
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 7.2a4.8 4.8 0 100 9.6 4.8 4.8 0 000-9.6zm0 7.9a3.1 3.1 0 110-6.2 3.1 3.1 0 010 6.2zm4.965-8.722a1.12 1.12 0 110 2.24 1.12 1.12 0 010-2.24z"
-                  />
-                </svg>
-              </a>
-
               <a
                 href={`https://wa.me/${settings.support_phone}?text=Hi! I am interested in your Chikankari kurtis. Could you please guide me?`}
                 target="_blank"
@@ -135,6 +99,7 @@ export const Footer: React.FC = () => {
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 text-white hover:bg-green-700 transition-all duration-200"
                 aria-label="Contact us on WhatsApp"
               >
+                {/* Kept the SVG for WhatsApp as Lucide doesn't usually include brand logos */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 32 32"
@@ -153,15 +118,17 @@ export const Footer: React.FC = () => {
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <p className="text-xs md:text-sm text-slate-400">
-              © {currentYear} Anokhichikankari. All rights reserved. Celebrating Lucknowi heritage.
+              © {currentYear} <span>Anokhi Chikankari</span>. All rights reserved. <span className='text-green-500'>Celebrating Lucknowi heritage</span>.
             </p>
 
             {/* Additional Links */}
             <div className="flex gap-6 text-xs md:text-sm">
-              <a href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
+              <a href="/privacy-policy" className="flex items-center text-slate-400 hover:text-white transition-colors">
+                <FileText className="w-3 h-3 mr-1" />
                 Privacy Policy
               </a>
-              <a href="/terms-of-service" className="text-slate-400 hover:text-white transition-colors">
+              <a href="/terms-of-service" className="flex items-center text-slate-400 hover:text-white transition-colors">
+                <FileText className="w-3 h-3 mr-1" />
                 Terms of Service
               </a>
             </div>

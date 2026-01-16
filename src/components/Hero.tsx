@@ -77,7 +77,7 @@ export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
             </button>
             <button
               onClick={handleWhatsAppOrder}
-              className="btn-secondary bg-white/10 text-white"
+              className="btn-secondary bg-[#009966] text-white border-[#009966] hover:bg-[#02754f]"
             >
               Order on WhatsApp
             </button>
