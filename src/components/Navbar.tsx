@@ -14,11 +14,9 @@ export const Navbar: React.FC<NavbarProps> = ({ whatsappNumber }) => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
-        // Scrolled down: Dark text for white/glass background
         setTextColor('text-slate-900')
         setIsScrolled(true)
       } else {
-        // At top: Light text for dark background
         setTextColor('text-slate-200')
         setIsScrolled(false)
       }
@@ -141,8 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({ whatsappNumber }) => {
       </nav>
 
       {/* SPACER DIV:
-        This empty div sits in the document flow and pushes your content down
-        by 4rem (h-16), which is the exact height of your fixed navbar.
+        This empty div sits in the document flow and pushes the main content down to match the transition of navbar
       */}
       <div className="h-16"></div>
     </>
