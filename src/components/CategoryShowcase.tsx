@@ -24,7 +24,7 @@ export const CategoryShowcase: React.FC = () => {
     <section className="section-container bg-[#FAF7F2]">
       <div className="section-inner">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-serif font-semibold text-[#2C2A28]">
+          <h2 className="text-4xl font-serif font-semibold text-[#2C2A28]">
             Shop by Category
           </h2>
           <p className="mt-2 text-sm text-[#6B645C]">

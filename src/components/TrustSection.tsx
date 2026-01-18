@@ -59,7 +59,7 @@ const trustPoints = [
 
 export const TrustSection: React.FC = () => {
   return (
-    <section className="section-container bg-white">
+    <section className="section-container bg-slate-100">
       <div className="section-inner">
         <h2 className="section-title">Why Choose Anokhichikankari</h2>
         <p className="section-subtitle">

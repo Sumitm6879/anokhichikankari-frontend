@@ -58,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex items-center px-6">
         <div className="max-w-2xl md:ml-12">
-          <p className="text-slate-200 text-sm tracking-widest uppercase mb-6">
+          <p className="text-white font-serif font-bold text-sm tracking-widest uppercase mb-6">
             Pure Hand Embroidery • Lucknowi Artisans
           </p>
 
@@ -72,12 +72,12 @@ export const Hero: React.FC<HeroProps> = ({ whatsappNumber }) => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button onClick={handleViewCollection} className="btn-primary">
+            <button onClick={handleViewCollection} className="btn-primary bg-slate-900 text-white hover:bg-slate-700">
               View Collection
             </button>
             <button
               onClick={handleWhatsAppOrder}
-              className="btn-secondary bg-[#009966] text-white border-[#009966] hover:bg-[#02754f]"
+              className="btn-secondary bg-[#009966] text-white border-none hover:bg-[#02754f]"
             >
               Order on WhatsApp
             </button>

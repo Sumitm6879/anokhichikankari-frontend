@@ -5,11 +5,10 @@ import type { ProductUI } from '../lib/types'
 export const TrendingProductsSection: React.FC = () => {
   const { products, loading } = useTrendingProducts()
 
-  // products is now ProductUI[]
   const trendingProducts: ProductUI[] = products
 
   if (!trendingProducts.length && !loading) return null
-
+  // bg-[#FAF7F2]
   return (
     <section className="section-container bg-[#FAF7F2]">
       <div className="section-inner">

@@ -44,7 +44,7 @@ export const TrustStrip: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {trustStatements.map((statement, index) => (
             <div key={index} className="flex flex-col items-center md:items-start gap-3">
-              <div className="text-slate-600 flex-shrink-0">
+              <div className="text-slate-600 shrink-0">
                 {statement.icon}
               </div>
               <div>
